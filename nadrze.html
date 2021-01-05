@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8" >
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="keywords" content="water, enviroment, nature">
+        <meta name="author" content="Ondrej Stanek">
+        <meta name="description" content="Web se zaměřuje na vodní plochy">
+        <title>Kde je voda?</title>
+        
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+
+
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <img id=logo src="logo-150x150.svg" alt="Logo Voda v Krajině" width="150" height="150">
+            <h1>Kde je voda?</h1>
+        </div>
+
+        <div class="navigation">
+            <ul class="menu">
+                <li class="menu-item"><a href="uvod.html">Úvod</a></li>
+                <li class="menu-item"><a href="jezera.html">Jezera</a></li>
+                <li class="menu-item"><a href="mokrady.html">Mokřady</a></li>
+                <li class="menu-item"><a href="nadrze.html">Vodní nádrže</a></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div id="map" style="height: 100vh;"></div>
+    </body>
+    
+</html>

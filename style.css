@@ -1,0 +1,64 @@
+html, body, div, figure {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        }
+body {background: #9ab3f5;
+}
+
+.header {
+        display: inline-flex;
+        margin: 20px;
+}
+h1 {font-weight: bold;
+    color: black; 
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+h2 {margin: 10px;
+        text-align: left;
+        font-size: 2rem;
+}
+#logo {margin-right: 50px;
+}
+.menu {margin: 0;
+        padding: 0px;
+        list-style-type: none;     
+}
+.menu a {color: #0a043c;
+        text-decoration: none;
+        background-color: #7579e7;
+        padding: 10px;
+        margin:10px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        float: left;
+        border-radius: 15px;
+}
+.clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+}
+
+.main {padding: 10px;
+        display: flex;
+}
+    
+p {margin: 2.5px auto;
+        padding: 10px; 
+        text-align: justify;
+}
+.text {width: 40em;
+        background-color: #b3c6f8;
+        border-radius: 10px;
+}
+figure {margin: 0 25px;
+        float: right;
+}
+#map {margin: 20px;
+        width: 750px;
+        float: left;
+}
