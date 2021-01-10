@@ -15,17 +15,17 @@ h1 {font-weight: bold;
     text-align: center;
     font-size: 3rem;
     margin-top: 50px;
+    margin-left: 50px;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 h2 {margin: 10px;
         text-align: left;
         font-size: 2rem;
 }
-#logo {margin-right: 50px;
-}
 .menu {margin: 0;
         padding: 0px;
-        list-style-type: none;     
+        list-style-type: none; 
+        background-color: #0a043c;    
 }
 .menu a {color: #0a043c;
         text-decoration: none;
@@ -58,7 +58,8 @@ p {margin: 2.5px auto;
 figure {margin: 0 25px;
         float: right;
 }
-#map {margin: 20px;
-        width: 750px;
-        float: left;
+#map{margin: 10px;
+}
+footer{
+height: 30px;        
 }
