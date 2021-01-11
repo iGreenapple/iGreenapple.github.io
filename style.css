@@ -45,13 +45,14 @@ h2 {margin: 10px;
 
 .main {padding: 10px;
         display: flex;
+        min-height: calc(60vh - 70px);
 }
     
 p {margin: 2.5px auto;
         padding: 10px; 
         text-align: justify;
 }
-.text {width: 40em;
+.text {width: 60%;
         background-color: #b3c6f8;
         border-radius: 10px;
 }
@@ -60,6 +61,13 @@ figure {margin: 0 25px;
 }
 #map{margin: 10px;
 }
-footer{
-height: 30px;        
+footer {background-color: #7579e7;
+        margin-bottom: -50px;
+
+}
+footer p{text-align: center;
+        height: 70px;
+        position: relative;
+        bottom: 0;
+        
 }
