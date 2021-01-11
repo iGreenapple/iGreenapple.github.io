@@ -5,7 +5,6 @@ const MAP = L.map('map').setView([50.208568, 15.831504], 2);
 const CARTO_URL = "https://cartodb-basemaps-{s}.global.ssl.fastly.net/" + "light_all/{z}/{x}/{y}.png";
 const URL_OSM = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
-
 const OSM = L.tileLayer(URL_OSM, {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
     maxZoom: 16,
@@ -43,37 +42,37 @@ const baseLayers = {
 
 const LAYERS = L.control.layers(baseLayers);
 
-const WATER = 'https://zelda.sci.muni.cz/geoserver/webovka/ows?' +
-'service=WFS&' + 
-'version=2.0.0&' + 
-'request=GetFeature&' +
-'typeName=webovka%3ANadrze_HK_point&' +
-'outputFormat=application/json&' +
-'srsname=EPSG:4326&';
+// const WATER = 'https://zelda.sci.muni.cz/geoserver/webovka/ows?' +
+// 'service=WFS&' + 
+// 'version=2.0.0&' + 
+// 'request=GetFeature&' +
+// 'typeName=webovka%3ANadrze_HK_point&' +
+// 'outputFormat=application/json&' +
+// 'srsname=EPSG:4326&';
 
-fetch(WATER)
-    .then(response => response.json())
-	.then(data => {
-        const WATER_LAYER = L.geoJSON(data);
+// fetch(WATER)
+//     .then(response => response.json())
+// 	.then(data => {
+//         const WATER_LAYER = L.geoJSON(data);
 
-        const WATER_CLUSTER = L.markerClusterGroup();
-        WATER_CLUSTER
-			.addLayer(WATER_LAYER)
-			.bindPopup(MARKER => {
-				let content = document.createElement('table');
+//         const WATER_CLUSTER = L.markerClusterGroup();
+//         WATER_CLUSTER
+// 			.addLayer(WATER_LAYER)
+// 			.bindPopup(MARKER => {
+// 				let content = document.createElement('table');
 
-				Object.entries(MARKER.feature.properties)
-					.forEach(property => {
-						let row = document.createElement('tr');
-						row.innerHTML = property.map(val => `<td>${val}</td>`).join('');
-						content.appendChild(row);
-					});
+// 				Object.entries(MARKER.feature.properties)
+// 					.forEach(property => {
+// 						let row = document.createElement('tr');
+// 						row.innerHTML = property.map(val => `<td>${val}</td>`).join('');
+// 						content.appendChild(row);
+// 					});
 
-                return content;
-            });
+//                 return content;
+//             });
 		
-        LAYERS.addOverlay(WATER_CLUSTER, "Vodní plochy - INFO");
-    });
+//         LAYERS.addOverlay(WATER_CLUSTER, "Vodní plochy - INFO");
+//     });
 
 const WATER_POLYGON = 'https://zelda.sci.muni.cz/geoserver/webovka/ows?' +
 'service=WFS&' + 
@@ -84,26 +83,32 @@ const WATER_POLYGON = 'https://zelda.sci.muni.cz/geoserver/webovka/ows?' +
 'srsname=EPSG:4326';
 
 fetch(WATER_POLYGON)
-	.then(response => response.json())
-	.then(data => {
-        const WATER_POLYGON = L.geoJSON(data, {
-            style: function (feature) {
-                    return {
-                        fillColor: "#1a508b",
-                        fillOpacity: 0.8
-                    }},
-            onEachFeature: function (feature, layer) {
-                    layer.bindPopup(feature.properties.description);
-                    }        
-            
+.then(response => response.json())
+.then(data => {
+    const WATER_LAYER = L.geoJSON(data);
+
+    const WATER_CLUSTER = L.markerClusterGroup();
+    WATER_CLUSTER
+        .addLayer(WATER_LAYER)
+        .bindPopup(MARKER => {
+            let content = document.createElement('table');
+
+            Object.entries(MARKER.feature.properties)
+                .forEach(property => {
+                    let row = document.createElement('tr');
+                    row.innerHTML = property.map(val => `<td>${val}</td>`).join('');
+                    content.appendChild(row);
+                });
+
+            return content;
         });
-		
-	    LAYERS.addOverlay(WATER_POLYGON, "Vodní plochy");
-    });
+    
+    LAYERS.addOverlay(WATER_CLUSTER, "Vodní plochy");
+});
 
 MAP.addControl(LAYERS);
 
-MAP.addLayer(OSM);
+MAP.addLayer(Esri_WorldImagery);
 // MAP.addLayer(HK);
 // MAP.addLayer(CIRCLE);
 
